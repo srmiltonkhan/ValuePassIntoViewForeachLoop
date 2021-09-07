@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/',[App\Http\Controllers\HomeController::class,'ShowHome']);
+
+
+
+
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    function ShowHome(){
+        $data = array("Bangladesh","India","China","Malaysia");
+        return view('Home',['KeyData'=>$data]);
+    }
+}
+
+
+
+
+
+<select>
+    @foreach($KeyData  as $countryName)
+    <option>
+        {{$countryName}}
+    </option>
+    @endforeach
+</select>
